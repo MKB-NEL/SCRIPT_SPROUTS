@@ -11,6 +11,30 @@
   <loc>https://mkb-nel.github.io/SCRIPT_SPROUTS/</loc>
   <lastmod>2024-12-23T07:51:24+00:00</lastmod>
 </url>
+      <url>
+  <loc>https://mkb-nel.github.io/SCRIPT_SPROUTS/home.html</loc>
+  <lastmod>2024-12-23T07:51:24+00:00</lastmod>
+</url>
+      <url>
+  <loc>https://mkb-nel.github.io/SCRIPT_SPROUTS/image.html</loc>
+  <lastmod>2024-12-23T07:51:24+00:00</lastmod>
+<priority>1.0</priority>
+</url>
+      <url>
+  <loc>https://mkb-nel.github.io/SCRIPT_SPROUTS/image.html</loc>
+  <lastmod>2024-12-23T07:51:24+00:00</lastmod>
+<priority>0.8</priority>          
+</url>
+      <url>
+  <loc>https://mkb-nel.github.io/SCRIPT_SPROUTS/video.html</loc>
+  <lastmod>2024-12-23T07:51:24+00:00</lastmod>
+<priority>0.5</priority>
+</url>
+       <url>
+  <loc>https://mkb-nel.github.io/SCRIPT_SPROUTS/document.html</loc>
+  <lastmod>2024-12-23T07:51:24+00:00</lastmod>
+<priority>1.0</priority>
+</url>
 
 
 </urlset>
