@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article name</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            background-color: black;
+            color: #ff0084;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #ff0084;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background-color: black;
+            border: none;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #ff0084;
+            color: black;
+        }
+
+        .header {
+            padding: 20px;
+            color: #ff0084;
+            font-size: 3rem;
+            position: absolute;
+            top: 20px;
+            left: 120px; /* Pushed away from the back button */
+            margin: 0;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 100px;
+            padding: 0 20px;
+        }
+
+        .line {
+            width: 2px;
+            height: 100vh;
+            background-color: #ff0084;
+            margin: 0 30px;
+        }
+
+        .text-section {
+            width: 45%;
+            color: white;
+        }
+
+        .text-section p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .image-section {
+            width: 45%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+            gap: 20px;
+        }
+
+        .image-section img {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ff0084;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='home.html'">Back</button>
+
+    <div class="header">Article-Format</div>
+
+    <div class="content">
+        <div class="text-section">
+            <p>Web design plays a crucial role in shaping user experience and determining the success of online businesses. In today's fast-paced digital world, websites need to be visually appealing, responsive, and easy to navigate. This article explores why web design is more important than ever in the competitive online space.</p>
+
+            <p>As the digital landscape continues to evolve, the expectations of users increase. A modern and aesthetically pleasing website can help businesses stand out and attract more visitors. Furthermore, mobile optimization has become a necessity as more people use smartphones and tablets to access the web. Therefore, web designers must create websites that work seamlessly across all devices and platforms.</p>
+
+            <p>In conclusion, web design is no longer just about aesthetics—it's about creating a functional and enjoyable user experience that drives conversions and builds brand loyalty. For businesses looking to succeed online, investing in good web design is essential.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="image-section">
+            <img src="article-image1.jpg" alt="Web Design">
+            <img src="article-image2.jpg" alt="Responsive Design">
+            <img src="article-image3.jpg" alt="User Experience">
+            <img src="article-image4.jpg" alt="Creative Design">
+        </div>
+    </div>
+</body>
+</html>

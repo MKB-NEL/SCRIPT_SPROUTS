@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            background-color: black;
+            color: #ff0084;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: black;
+        }
+        .back-button {
+            font-size: 16px;
+            color: #ff0084;
+            text-decoration: none;
+            border: 2px solid #ff0084;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .back-button:hover {
+            background-color: #ff0084;
+            color: black;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-right: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+        .box {
+            width: 700px;
+            height: 150px;
+            border: 2px solid #ff0084;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            background-color: #1a1a1a;
+        }
+        .box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .box .text {
+            flex-grow: 1;
+            margin-left: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .box .download {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home.html" class="back-button">BACK</a>
+        <div class="title">Documents</div>
+    </header>
+
+    <p>REMEMBER: You may download this documents for your own use but some are premium to download them.</p>
+
+    <main>
+        <!-- Box 1 -->
+        <div class="box">
+            <img src="image/sample-profile.png" alt="Profile Image">
+            <div class="text">Document 1</div>
+            <a href="doc/test1.doc" download>
+                <img src="image/download.png" alt="Download Icon" class="download">
+            </a>
+        </div>
+        <!-- Box 2 -->
+        <div class="box">
+            <img src="image/sample-profile.png" alt="Profile Image">
+            <div class="text">Document 2</div>
+            <a href="doc/test2.doc" download>
+                <img src="image/download.png" alt="Download Icon" class="download">
+            </a>
+        </div>
+        <!-- Box 3 -->
+        <div class="box">
+            <img src="image/sample-profile.png" alt="Profile Image">
+            <div class="text">Document 3</div>
+            <a href="doc/test3.doc" download>
+                <img src="image/download.png" alt="Download Icon" class="download">
+            </a>
+        </div>
+        <!-- Box 4 -->
+        <div class="box">
+            <img src="image/sample-profile.png" alt="Profile Image">
+            <div class="text">Document 4</div>
+            <a href="doc/test4.doc" download>
+                <img src="image/download.png" alt="Download Icon" class="download">
+            </a>
+        </div>
+        <!-- Box 5 -->
+        <div class="box">
+            <img src="image/sample-profile.png" alt="Profile Image">
+            <div class="text">Document 5</div>
+            <a href="doc/test5.doc" download>
+                <img src="image/download.png" alt="Download Icon" class="download">
+            </a>
+        </div>
+        <!-- Box 6 -->
+        <div class="box">
+            <img src="image/sample-profile.png" alt="Profile Image">
+            <div class="text">Document 6</div>
+            <a href="doc/test6.doc" download>
+                <img src="image/download.png" alt="Download Icon" class="download">
+            </a>
+        </div>
+    </main>
+</body>
+</html>

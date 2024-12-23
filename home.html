@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S_S-ARTICLES</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Get an environment where to get your tech tips to develop your social understanding of the computer.">
+    <style>
+        body {
+            background-color: black;
+            color: #ff0084;
+            font-family: Arial, sans-serif;
+            transform: scale(0.8);
+            transform-origin: top left;
+            overflow: hidden;
+        }
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .left-panel img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .left-panel h1 {
+            margin-bottom: 20px;
+        }
+        .category-box {
+            width: 200px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff0084;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .category-box:active {
+            background-color: #ff0084;
+            color: black;
+        }
+        .center-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-left: 190px;
+            margin-top: -500px;
+        }
+        .main-box {
+            width: 900px;
+            height: 600px;
+            background-color: black;
+            border: 2px solid #ff0084;
+            border-radius: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ff0084 black;
+        }
+        .main-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        .main-box::-webkit-scrollbar-thumb {
+            background-color: #ff0084;
+            border-radius: 10px;
+        }
+        .sub-box {
+            background-color: black;
+            border: 2px solid #ff0084;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            position: relative;
+            width: auto;
+            height: auto;
+        }
+        .sub-box-title {
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 20px;
+            background-color: #ff0084;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+        .sub-box img {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ff0084;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .sub-box-description {
+            flex: 1;
+            color: white;
+        }
+        .sub-box-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sub-box-right img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 10px 0;
+            cursor: pointer;
+            border: 2px solid #ff0084;
+        }
+        .sub-box-right img:hover {
+            background-color: #ff0084;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: black;
+            border: #ff0084 2px solid;
+            border-radius: 5px;
+            padding: 5px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .search-box img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+        .footer-text {
+            margin-top: -170px;
+            width: 100%;
+        }
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 170px;
+            right: -280px;
+            width: 200px;
+            height: 100%;
+        }
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 100%;
+        }
+        .video-box {
+            width: 180px;
+            height: 120px;
+            background-color: black;
+            border: 2px solid #ff0084;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .video-box video {
+            width: 100%;
+            height: 100%;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-left: 750px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        #profilePopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #000;
+            border: 2px solid #ff0084;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-panel">
+        <img src="favicon.png" alt="Script Sprouts Logo">
+        <h1>SCRIPT_SPROUTS</h1>
+        <div class="category-box" onclick="window.location.href='home.html';">ARTICLES</div>
+<div class="category-box" onclick="window.location.href='image.html';">IMAGES</div>
+<div class="category-box" onclick="window.location.href='video.html';">VIDEOS</div>
+<div class="category-box" onclick="window.location.href='document.html';">DOCUMENTS</div>
+<div class="category-box" onclick="window.location.href='pending.html';">pending...</div>
+    </div>
+    <div class="center-panel">
+        <div class="search-box">
+            <img src="search-icon.png" alt="Search Icon">
+            <input style="background-color:#ff0084;" type="text" placeholder="Search..." id="searchInput">
+        </div>
+        <div class="main-box" id="mainBox">
+            <div class="sub-box" onclick="window.location.href='assets/file.html'">
+                <div class="sub-box-title">Example of a topic in Script Sprout</div>
+                <img src="image/1.png" alt="Article Image">
+                <div class="sub-box-description">Lespon beritus this is the description of the article that will be in the box or page.</div>
+                <div class="sub-box-right">
+                    <img src="youtube-icon.png" alt="YouTube" onclick="window.open('https://youtube.com', '_blank')">
+                    <img src="reddit-icon.png" alt="Reddit" onclick="window.open('https://reddit.com', '_blank')">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile">
+        <img src="profile-image.png" alt="Profile Image" class="profile-image" id="profileImage">
+    </div>
+    <div class="right-panel">
+        <div class="video-box">
+            <video src="video/1.mp4" autoplay muted loop></video>
+        </div>
+        <div class="video-box">
+            <video src="video/2.mp4" autoplay muted loop></video>
+        </div>
+        <div class="video-box">
+            <video src="video/3.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+    <div class="footer-text">&copy; 2024<br><b>Made by btem</b><br>CO-OP:<br>~D.A.B<br>~<br>~</div>
+
+    <!-- Popup for Profile -->
+    <div id="profilePopup">
+        <h2>Profile Information</h2>
+        <p>Email: <span id="userEmail">Loading...</span></p>
+        <p>Location: <span id="userLocation">Loading...</span></p>
+        <p>User ID: <span id="userId">Loading...</span></p>
+        <button onclick="closeProfilePopup()" style="background-color: #ff0084; color: #fff; padding: 10px; border: none; cursor: pointer;">Close</button>
+    </div>
+    
+    <script>
+        
+        const searchInput = document.getElementById('searchInput');
+        const mainBox = document.getElementById('mainBox');
+        const profileImage = document.getElementById('profileImage');
+        const profilePopup = document.getElementById('profilePopup');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            const subBoxes = mainBox.querySelectorAll('.sub-box');
+
+            subBoxes.forEach(subBox => {
+                const title = subBox.querySelector('.sub-box-title').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    subBox.style.display = 'flex';
+                } else {
+                    subBox.style.display = 'none';
+                }
+            });
+        });
+
+        profileImage.addEventListener('click', () => {
+            // Retrieve the email and user ID from localStorage
+            const userEmail = localStorage.getItem('userEmail') || 'Email not found';
+            const userId = localStorage.getItem('userId') || 'User ID not found';
+
+            // Display user information in the popup
+            document.getElementById('userEmail').textContent = userEmail;
+            document.getElementById('userId').textContent = userId;
+
+            // Retrieve and display the current location
+            navigator.geolocation.getCurrentPosition((pos) => {
+                document.getElementById('userLocation').textContent = `${pos.coords.latitude},${pos.coords.longitude}`;
+            });
+
+            // Show the profile popup
+            profilePopup.style.display = "block";
+        });
+
+        function closeProfilePopup() {
+            profilePopup.style.display = "none";
+        }
+        
+        
+    </script>
+</body>
+</html>

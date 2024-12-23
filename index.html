@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script_Sprouts-SIGN IN/UP</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Get an environment where to get your tech tips to develop your social understanding of the computer.">
+    <style>
+        /* Global scaling and full-screen background */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #000000; /* Full black background */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: scale(0.8); /* Global scale of 80% */
+            transform-origin: top center; /* Scaling centered on the screen */
+        }
+
+        /* Central container styling */
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: #000000; /* Pure black inside the box */
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8); /* Subtle shadow for depth */
+            width: 320px; /* Smaller width for compact design */
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between elements */
+            margin-top: 200px; /* Move the container downward */
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2rem; /* Reduced size for scaling */
+            color: #ff0084; /* Vibrant pink */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Grid acting as logo */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px; /* Small space between grid boxes */
+            justify-content: center;
+            margin: 10px 0;
+            width: fit-content;
+            align-self: center; /* Center the grid within the container */
+        }
+
+        .grid-item {
+            width: 20px;
+            height: 20px;
+            background-color: #ff0084; /* Pink color */
+            border-radius: 3px;
+        }
+
+        .grid-item.hidden {
+            visibility: hidden; /* Hide the middle box */
+        }
+
+        /* Input fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff0084; /* Pink border */
+            border-radius: 10px;
+            font-size: 0.9rem; /* Slightly smaller font size */
+            color: #ffffff; /* White text */
+            background-color: #000000; /* Black background for inputs */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #ff4da6; /* Brighter pink */
+            box-shadow: 0 0 6px #ff4da6;
+            outline: none;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background-color: #ff0084; /* Vibrant pink */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem; /* Reduced font size */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            align-self: center; /* Center the button */
+        }
+
+        .submit-btn:hover {
+            background-color: #e60073; /* Slightly darker pink */
+            box-shadow: 0 4px 10px rgba(255, 0, 132, 0.5);
+        }
+
+        .submit-btn:focus {
+            outline: none;
+        }
+
+        /* Toggle text */
+        .toggle-text {
+            font-size: 0.8rem;
+            color: #ff0084; /* Pink color */
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Divider line above footer */
+        .divider {
+            width: 8cm;
+            height: 2px;
+            background-color: #ff0084;
+            margin: 20px auto; /* Add space above and center it */
+        }
+
+        /* Footer styling */
+        .footer {
+            margin-top: 10px;
+            font-size: 0.8rem; /* Small font size for the footer */
+            color: #ff0084; /* Pink text */
+            text-align: center;
+        }
+
+        /* Glowing box in the left-down corner */
+        .glowing-box {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #ff0084; /* Pink color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff0084, 0 0 20px #ff0084, 0 0 30px #ff0084; /* Glowing effect */
+        }
+
+        /* Loading screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+            visibility: hidden;
+        }
+
+        .loading-screen.visible {
+            visibility: visible;
+        }
+
+        .loading-text {
+            color: #ff0084;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .loading-bar {
+            width: 80%;
+            height: 10px;
+            background-color: #ff0084;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #ff4da6;
+            animation: loading 5s linear forwards;
+        }
+
+        @keyframes loading {
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SCRIPT_SPROUTS</h1>
+        
+        <!-- Grid logo -->
+        <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item hidden"></div> <!-- Hidden middle box -->
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+
+        <!-- Inputs -->
+        <div id="input-fields">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+
+        <!-- Sign In/Up button -->
+        <button class="submit-btn" id="submit-btn">Sign In</button>
+
+        <!-- Toggle between Sign In/Sign Up -->
+        <div class="toggle-text" id="toggle-text">No account? Create an account</div>
+    </div>
+
+    <!-- Divider line -->
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 | Made by btem
+    </div>
+
+    <!-- Glowing box in the left-down corner -->
+    <div class="glowing-box"></div>
+
+    <!-- Loading screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-text">Welcome to SCRIPT_SPROUTS</div>
+        <div class="loading-bar"></div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAcnCKmcXcgUBHOGGEj8dizh2ybY7iQ7JI",
+            authDomain: "script-sprouts.firebaseapp.com",
+            projectId: "script-sprouts",
+            storageBucket: "script-sprouts.firebasestorage.app",
+            messagingSenderId: "223432338173",
+            appId: "1:223432338173:web:ddcf3de3f2880320b12c94",
+            measurementId: "G-3SXH0LLN3R"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+    
+        const toggleText = document.getElementById("toggle-text");
+        const inputFields = document.getElementById("input-fields");
+        const submitBtn = document.getElementById("submit-btn");
+        const loadingScreen = document.getElementById("loading-screen");
+    
+        let isSignUp = false;
+    
+        toggleText.addEventListener("click", () => {
+            if (!isSignUp) {
+                // Add Name input field
+                const nameInput = document.createElement("input");
+                nameInput.type = "text";
+                nameInput.id = "name";
+                nameInput.placeholder = "Enter your name";
+                nameInput.required = true;
+                inputFields.insertBefore(nameInput, inputFields.firstChild);
+    
+                // Update text and button
+                toggleText.textContent = "Already have an account? Sign In";
+                submitBtn.textContent = "Sign Up";
+                isSignUp = true;
+            } else {
+                // Remove Name input field
+                const nameInput = document.getElementById("name");
+                if (nameInput) {
+                    inputFields.removeChild(nameInput);
+                }
+    
+                // Update text and button
+                toggleText.textContent = "No account? Create an account";
+                submitBtn.textContent = "Sign In";
+                isSignUp = false;
+            }
+        });
+    
+        submitBtn.addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+    
+            if (isSignUp) {
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed up
+                        const user = userCredential.user;
+                        localStorage.setItem("isAuthenticated", "true");
+                        localStorage.setItem("userEmail", email); // Store email in local storage
+                        showLoadingScreen();
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(`Error: ${errorMessage}`);
+                    });
+            } else {
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in
+                        const user = userCredential.user;
+                        localStorage.setItem("isAuthenticated", "true");
+                        localStorage.setItem("userEmail", email); // Store email in local storage
+                        showLoadingScreen();
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(`Error: ${errorMessage}`);
+                    });
+            }
+        });
+    
+        function showLoadingScreen() {
+            loadingScreen.classList.add("visible");
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 5000);
+        }
+    
+        // Check if user is already authenticated
+        if (localStorage.getItem("isAuthenticated") === "true") {
+            window.location.href = "home.html";
+        }
+    </script>    
+</body>
+</html>
